@@ -1,0 +1,22 @@
+html {
+    color:white;
+    background-color: #ffdf44;
+}
+.accueil {
+    background-color: #ffdf44;
+    margin-bottom: -20px;
+
+}
+
+.margin {
+   margin-top: 55px;
+}
+
+.color-red {
+    background-color: darkred;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+
+}
+
