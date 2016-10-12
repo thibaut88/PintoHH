@@ -1,11 +1,8 @@
-<<<<<<< HEAD
 <div class="container">
-
-=======
+    
 <?php
         require "config.php";
 ?>
->>>>>>> 41f52810e62957ebd62e1479c37599e70000f4ed
 
     <div class="row margin">
 
