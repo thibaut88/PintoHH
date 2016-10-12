@@ -1,3 +1,3 @@
 <?php
-$bdd = new PDO('mysql:host=localhost;dbname=pinto', 'root', 'root');
+$bdd = new PDO('mysql:host=localhost;dbname=pinto', 'root', '');
 ?>
