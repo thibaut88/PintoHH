@@ -102,6 +102,11 @@
     <a class="waves-effect waves-light btn" type="submit" name="action">Valider</a>
 </div>
 
+    <?php
+    $reponse = $bdd->query('SELECT * FROM utilisateurs');
+    ?>
+
+
     <br>
     <br>
 
