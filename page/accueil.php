@@ -7,7 +7,9 @@
     <div class="row margin">
 
         <div class="col l4 s12 center-align">
-            <img src="./images/red-circle.png" class="z-depth-3 slideanim" style="width: 155px">
+            <a href="page/chercher_bar.php">
+                <img src="./images/red-circle.png" class="z-depth-3 slideanim" style="width: 155px">
+            </a>
             <h5>Chercher un bar</h5>
         </div>
 
@@ -17,7 +19,9 @@
         </div>
 
         <div class="col l4 s12 center-align">
-            <img src="./images/red-circle.png" class="z-depth-3 slideanim" style="width: 155px">
+            <a href="page/chercher_biere.php">
+                <img src="./images/red-circle.png" class="z-depth-3 slideanim" style="width: 155px">
+            </a>
             <h5>Chercher une bière</h5>
         </div>
 
