@@ -1,4 +1,8 @@
-<?php include "../header.php" ?>
+<?php include("config.php"); ?>
+
+<?php include("header.php"); ?>
+
+
 <h2>Formulaire de Recherche de Bière avec Filtre: </h2>
 
 <form method="post" action="#">
@@ -49,3 +53,5 @@
 
     <input type="submit" value="Rechercher">
 </form>
+
+<?php include("footer.php"); ?>

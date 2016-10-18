@@ -1,6 +1,7 @@
 html {
     color:white;
     background-color: #ffdf44;
+    font-family: 'Coming Soon', cursive;
 }
 .accueil {
     background-color: #ffdf44;
@@ -21,5 +22,67 @@ html {
 
 }
 
+/* CONTAINER 2EME TAILLE */
+.container2 {
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 90%;
+}
 
-vhbrfonijgeiurvgciezrhmgfiuerhocigvuazeorhgfaifoj
+@media only screen and (min-width: 601px) {
+    .container2 {
+        width: 90%;
+    }
+}
+
+@media only screen and (min-width: 993px) {
+    .container2 {
+        width: 90%;
+    }
+
+    .container2 .row {
+        margin-left: -0.75rem;
+        margin-right: -0.75rem;
+    }
+
+
+.bar-font {
+    color: grey;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+    .collapsible-body {
+        background-color: #64c271;
+}
+
+.grey-font {
+    color: grey;
+    font-size: 18px;
+    text-align: justify;
+}
+
+.white-font {
+    color: white;
+}
+
+    .modal {
+        display: none;
+        position: fixed;
+        left: 0;
+        right: 0;
+        background-color: #fafafa;
+        padding: 0;
+        max-height: 85%;
+        width: 85%;
+        margin: auto;
+        overflow-y: auto;
+        border-radius: 2px;
+        will-change: top, opacity;
+    }
+
+    @media only screen and (max-width: 992px) {
+        .modal {
+            width: 95%;
+        }
+    }
