@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< master
     <list default="true" id="9d685ca3-28fc-4ddf-a814-d186e594afe2" name="Default" comment="">
 <<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page/chercher_biere.php" afterPath="$PROJECT_DIR$/page/chercher_biere.php" />
@@ -8,6 +9,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
 >>>>>>> chloe
     </list>
+=======
+    <list default="true" id="9d685ca3-28fc-4ddf-a814-d186e594afe2" name="Default" comment="" />
+>>>>>>> essai
     <ignored path="pinto.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -50,10 +54,17 @@
       <file leaf-file-name="chercher_bar.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/page/chercher_bar.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< master
             <state relative-caret-position="255">
               <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding>
                 <marker date="1476864524396" expanded="true" signature="3486:3617" ph="SELECT * FRO... bars" />
+=======
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
+              <folding>
+                <marker date="1476863809080" expanded="true" signature="3489:3620" ph="SELECT * FRO... bars" />
+>>>>>>> essai
               </folding>
             </state>
           </provider>
@@ -320,17 +331,28 @@
       <workItem from="1476790598734" duration="212000" />
 =======
       <workItem from="1476793996518" duration="186000" />
+<<<<<<< master
       <workItem from="1476794228839" duration="9141000" />
 >>>>>>> chloe
+=======
+      <workItem from="1476794228839" duration="8238000" />
+>>>>>>> essai
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< master
 <<<<<<< HEAD
     <option name="totallyTimeSpent" value="2834000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="53" y="24" width="1313" height="744" extended-state="6" />
+=======
+    <option name="totallyTimeSpent" value="11046000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="-4" width="1366" height="772" extended-state="6" />
+>>>>>>> essai
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24904798" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -495,10 +517,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/page/chercher_bar.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< master
         <state relative-caret-position="255">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
             <marker date="1476864524396" expanded="true" signature="3486:3617" ph="SELECT * FRO... bars" />
+=======
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
+          <folding>
+            <marker date="1476863809080" expanded="true" signature="3489:3620" ph="SELECT * FRO... bars" />
+>>>>>>> essai
           </folding>
         </state>
       </provider>
