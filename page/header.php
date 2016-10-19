@@ -35,3 +35,28 @@
     </div>
 </nav>
 
+<div class="container">
+    <div class="row">
+
+        <a href="/PintoHH/index.php">
+        <div class="col l4 s4" style="background-color: #EB9532">
+            <img src="/PintoHH/images/bonhomme.png" width="100px" class="center-block">
+        </div>
+        </a>
+
+        <a href="#">
+        <div class="col l4 s4" style="background-color: #F5AB35">
+            <img src="/PintoHH/images/megaphone.png" width="100px" class="center-block">
+        </div>
+        </a>
+
+        <a href="#">
+        <div class="col l4 s4" style="background-color: #F27935">
+            <img src="/PintoHH/images/plane.png" height="100px" class="center-block">
+        </div>
+        </a>
+
+    </div>
+</div>
+
+

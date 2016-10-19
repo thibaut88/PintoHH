@@ -14,7 +14,7 @@
 
         <form method="post" action="#">
 
-          <div class="input-field col l2 s6">
+          <div class="input-field col l2 s6 offset-l1">
             <label for="nom_bar">Nom</label>
             <input type="text" name="nom_bar" id="nom_bar" class="autocomplete"/>
           </div>
@@ -29,20 +29,6 @@
                 <option>Pas de Palier</option>
             </select>
                 <label for="distance">Palier de Distance</label>
-            </div>
-
-
-            <div class="input-field col l2 s6">
-            <select name="quartier" id="quartier">
-                <option value="" disabled selected>Choisissez votre option</option>
-                <option>Centre Ville</option>
-                <option>Port</option>
-                <option>La Zup</option>
-                <option>La Vierge</option>
-                <option>Bitola</option>
-                <option>Saut-le-Cerf</option>
-            </select>
-                <label for="quartier">Quartier de la ville </label>
             </div>
 
             <div class="input-field col l2 s6">
@@ -80,9 +66,23 @@
             <a class="waves-effect waves-light btn" type="submit" name="action">Rechercher</a>
             </div>
 
-        </form>
+        </form> <!-- fin du formulaire -->
 
             </div> <!-- fin row -->
+
+            <div class="row">
+                <div class="col l3 offset-l9">
+                    <div class="switch">
+                        <label>
+                            Liste
+                            <input type="checkbox">
+                            <span class="lever"></span>
+                            Map
+                        </label>
+                    </div>
+                </div>
+            </div>
+
 
             <!-- AFFICHAGE DES BARS SELECTIONNES -->
             <div class="row">
@@ -135,7 +135,7 @@
                             <div id="<?php echo $donnees['id_bar']; ?>" class="modal">
                                 <div class="modal-content grey-font">
                                     <h4 class="bar-font"><?php echo $donnees['nom_bar']; ?></h4>
-                                        <p><?php echo $donnees['description']; ?></p>
+                                        <p><?php echo utf8_encode($donnees['description']); ?></p>
                                 </div>
                                     <div class="modal-footer">
                                     <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat"><i class="large material-icons prefix">close</i></a>
