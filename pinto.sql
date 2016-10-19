@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.5.1
+-- version 4.0.10deb1
 -- http://www.phpmyadmin.net
 --
--- Client :  127.0.0.1
--- Généré le :  Jeu 06 Octobre 2016 à 09:51
--- Version du serveur :  5.7.11
--- Version de PHP :  5.6.19
+-- Host: localhost
+-- Generation Time: Oct 19, 2016 at 09:21 AM
+-- Server version: 5.6.31-0ubuntu0.14.04.2
+-- PHP Version: 5.5.9-1ubuntu4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,23 +14,23 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
--- Base de données :  `pinto`
+-- Database: `pinto`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `bars`
+-- Table structure for table `bars`
 --
 
-CREATE TABLE `bars` (
-  `id_bar` int(10) UNSIGNED NOT NULL,
-  `photos_id_photo` int(11) UNSIGNED DEFAULT NULL,
-  `styles_bars_id_style_bar` int(11) UNSIGNED DEFAULT NULL,
-  `villes_id_ville` int(11) UNSIGNED DEFAULT NULL,
+CREATE TABLE IF NOT EXISTS `bars` (
+  `id_bar` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `photos_id_photo` int(11) unsigned DEFAULT NULL,
+  `styles_bars_id_style_bar` int(11) unsigned DEFAULT NULL,
+  `villes_id_ville` int(11) unsigned DEFAULT NULL,
   `nom_bar` varchar(255) DEFAULT NULL,
   `longitude` float DEFAULT NULL,
   `latitude` float DEFAULT NULL,
@@ -39,11 +39,15 @@ CREATE TABLE `bars` (
   `description` text,
   `telephone` varchar(20) DEFAULT NULL,
   `mot_patron` text,
-  `site_web` varchar(255) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `site_web` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_bar`),
+  KEY `bars_FKIndex1` (`villes_id_ville`),
+  KEY `bars_FKIndex2` (`styles_bars_id_style_bar`),
+  KEY `bars_FKIndex3` (`photos_id_photo`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Contenu de la table `bars`
+-- Dumping data for table `bars`
 --
 
 INSERT INTO `bars` (`id_bar`, `photos_id_photo`, `styles_bars_id_style_bar`, `villes_id_ville`, `nom_bar`, `longitude`, `latitude`, `numero`, `rue`, `description`, `telephone`, `mot_patron`, `site_web`) VALUES
@@ -54,126 +58,164 @@ INSERT INTO `bars` (`id_bar`, `photos_id_photo`, `styles_bars_id_style_bar`, `vi
 -- --------------------------------------------------------
 
 --
--- Structure de la table `bar_biere`
+-- Table structure for table `bar_biere`
 --
 
-CREATE TABLE `bar_biere` (
-  `bars_id_bar` int(10) UNSIGNED NOT NULL,
-  `bieres_id_biere` int(10) UNSIGNED NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `bar_biere` (
+  `bars_id_bar` int(10) unsigned NOT NULL,
+  `bieres_id_biere` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`bars_id_bar`,`bieres_id_biere`),
+  KEY `bars_has_bieres_FKIndex1` (`bars_id_bar`),
+  KEY `bars_has_bieres_FKIndex2` (`bieres_id_biere`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `bar_favori`
+-- Table structure for table `bar_favori`
 --
 
-CREATE TABLE `bar_favori` (
-  `bars_id_bar` int(10) UNSIGNED NOT NULL,
-  `utilisateurs_id_utilisateur` int(10) UNSIGNED NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `bar_favori` (
+  `bars_id_bar` int(10) unsigned NOT NULL,
+  `utilisateurs_id_utilisateur` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`bars_id_bar`,`utilisateurs_id_utilisateur`),
+  KEY `bars_has_utilisateurs_FKIndex1` (`bars_id_bar`),
+  KEY `bars_has_utilisateurs_FKIndex2` (`utilisateurs_id_utilisateur`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `bieres`
+-- Table structure for table `bieres`
 --
 
-CREATE TABLE `bieres` (
-  `id_biere` int(10) UNSIGNED NOT NULL,
-  `type_biere_id_type_biere` int(11) UNSIGNED DEFAULT NULL,
-  `pays_id_pays` int(11) UNSIGNED DEFAULT NULL,
-  `photos_id_photo` int(11) UNSIGNED DEFAULT NULL,
+CREATE TABLE IF NOT EXISTS `bieres` (
+  `id_biere` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `type_biere_id_type_biere` int(11) unsigned DEFAULT NULL,
+  `pays_id_pays` int(11) unsigned DEFAULT NULL,
+  `photos_id_photo` int(11) unsigned DEFAULT NULL,
   `nom_biere` varchar(255) DEFAULT NULL,
   `degree_biere` float DEFAULT NULL,
   `prix_normal` float DEFAULT NULL,
   `prix_happy` float DEFAULT NULL,
-  `description` text
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `description` text,
+  PRIMARY KEY (`id_biere`),
+  KEY `type_biere_id_type_biere` (`type_biere_id_type_biere`),
+  KEY `pays_id_pays` (`pays_id_pays`),
+  KEY `photos_id_photo` (`photos_id_photo`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `bieres`
+--
+
+INSERT INTO `bieres` (`id_biere`, `type_biere_id_type_biere`, `pays_id_pays`, `photos_id_photo`, `nom_biere`, `degree_biere`, `prix_normal`, `prix_happy`, `description`) VALUES
+(1, 3, 2, NULL, 'Kronenbourg', 5, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `biere_favori`
+-- Table structure for table `biere_favori`
 --
 
-CREATE TABLE `biere_favori` (
-  `bieres_id_biere` int(10) UNSIGNED NOT NULL,
-  `utilisateurs_id_utilisateur` int(10) UNSIGNED NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `biere_favori` (
+  `bieres_id_biere` int(10) unsigned NOT NULL,
+  `utilisateurs_id_utilisateur` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`bieres_id_biere`,`utilisateurs_id_utilisateur`),
+  KEY `bieres_has_utilisateurs_FKIndex1` (`bieres_id_biere`),
+  KEY `bieres_has_utilisateurs_FKIndex2` (`utilisateurs_id_utilisateur`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `galerie_bar`
+-- Table structure for table `galerie_bar`
 --
 
-CREATE TABLE `galerie_bar` (
-  `bars_id_bar` int(10) UNSIGNED NOT NULL,
-  `photos_id_photo` int(11) UNSIGNED NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `galerie_bar` (
+  `bars_id_bar` int(10) unsigned NOT NULL,
+  `photos_id_photo` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`bars_id_bar`,`photos_id_photo`),
+  KEY `bars_has_photos_FKIndex1` (`bars_id_bar`),
+  KEY `bars_has_photos_FKIndex2` (`photos_id_photo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `horaires`
+-- Table structure for table `horaires`
 --
 
-CREATE TABLE `horaires` (
-  `id_horaire` int(11) UNSIGNED NOT NULL,
-  `bars_id_bar` int(10) UNSIGNED DEFAULT NULL,
-  `numero_jour` int(1) UNSIGNED DEFAULT NULL,
+CREATE TABLE IF NOT EXISTS `horaires` (
+  `id_horaire` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `bars_id_bar` int(10) unsigned DEFAULT NULL,
+  `numero_jour` int(1) unsigned DEFAULT NULL,
   `heure_debut` time DEFAULT NULL,
   `heure_fin` time DEFAULT NULL,
-  `is_happy_hour` tinyint(1) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `is_happy_hour` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id_horaire`),
+  KEY `horaires_FKIndex1` (`bars_id_bar`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `pays`
+-- Table structure for table `pays`
 --
 
-CREATE TABLE `pays` (
-  `id_pays` int(11) UNSIGNED NOT NULL,
-  `nom_pays` varchar(255) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `pays` (
+  `id_pays` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `nom_pays` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_pays`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `pays`
+--
+
+INSERT INTO `pays` (`id_pays`, `nom_pays`) VALUES
+(1, 'France'),
+(2, 'Belgique'),
+(5, 'Allemagne');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `photos`
+-- Table structure for table `photos`
 --
 
-CREATE TABLE `photos` (
-  `id_photo` int(11) UNSIGNED NOT NULL,
-  `fichier` varchar(255) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `photos` (
+  `id_photo` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `fichier` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_photo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `roles`
+-- Table structure for table `roles`
 --
 
-CREATE TABLE `roles` (
-  `id_role` int(11) UNSIGNED NOT NULL,
-  `nom_role` varchar(255) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `roles` (
+  `id_role` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `nom_role` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_role`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `styles_bars`
+-- Table structure for table `styles_bars`
 --
 
-CREATE TABLE `styles_bars` (
-  `id_style_bar` int(11) UNSIGNED NOT NULL,
-  `nom_style_bar` varchar(255) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `styles_bars` (
+  `id_style_bar` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `nom_style_bar` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_style_bar`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
--- Contenu de la table `styles_bars`
+-- Dumping data for table `styles_bars`
 --
 
 INSERT INTO `styles_bars` (`id_style_bar`, `nom_style_bar`) VALUES
@@ -185,204 +227,121 @@ INSERT INTO `styles_bars` (`id_style_bar`, `nom_style_bar`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `type_biere`
+-- Table structure for table `type_biere`
 --
 
-CREATE TABLE `type_biere` (
-  `id_type_biere` int(11) UNSIGNED NOT NULL,
-  `nom_type_biere` varchar(255) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `type_biere` (
+  `id_type_biere` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `nom_type_biere` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_type_biere`),
+  KEY `id_type_biere` (`id_type_biere`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `type_biere`
+--
+
+INSERT INTO `type_biere` (`id_type_biere`, `nom_type_biere`) VALUES
+(1, 'Blonde'),
+(2, 'Brune'),
+(3, 'Ambrée'),
+(4, 'Rousse');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `utilisateurs`
+-- Table structure for table `utilisateurs`
 --
 
-CREATE TABLE `utilisateurs` (
-  `id_utilisateur` int(10) UNSIGNED NOT NULL,
-  `roles_id_role` int(11) UNSIGNED DEFAULT NULL,
+CREATE TABLE IF NOT EXISTS `utilisateurs` (
+  `id_utilisateur` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `roles_id_role` int(11) unsigned DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `password_2` varchar(50) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `password_2` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_utilisateur`),
+  KEY `utilisateurs_FKIndex1` (`roles_id_role`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `villes`
+-- Table structure for table `villes`
 --
 
-CREATE TABLE `villes` (
-  `id_ville` int(11) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `villes` (
+  `id_ville` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `code_postal` varchar(10) DEFAULT NULL,
-  `ville` varchar(255) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `ville` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_ville`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Contenu de la table `villes`
+-- Dumping data for table `villes`
 --
 
 INSERT INTO `villes` (`id_ville`, `code_postal`, `ville`) VALUES
 (1, '88000', 'Épinal');
 
 --
--- Index pour les tables exportées
+-- Constraints for dumped tables
 --
 
 --
--- Index pour la table `bars`
+-- Constraints for table `bars`
 --
 ALTER TABLE `bars`
-  ADD PRIMARY KEY (`id_bar`),
-  ADD KEY `bars_FKIndex1` (`villes_id_ville`),
-  ADD KEY `bars_FKIndex2` (`styles_bars_id_style_bar`),
-  ADD KEY `bars_FKIndex3` (`photos_id_photo`);
+  ADD CONSTRAINT `bars_ibfk_1` FOREIGN KEY (`photos_id_photo`) REFERENCES `photos` (`id_photo`),
+  ADD CONSTRAINT `bars_ibfk_2` FOREIGN KEY (`styles_bars_id_style_bar`) REFERENCES `styles_bars` (`id_style_bar`),
+  ADD CONSTRAINT `bars_ibfk_3` FOREIGN KEY (`villes_id_ville`) REFERENCES `villes` (`id_ville`);
 
 --
--- Index pour la table `bar_biere`
+-- Constraints for table `bar_biere`
 --
 ALTER TABLE `bar_biere`
-  ADD PRIMARY KEY (`bars_id_bar`,`bieres_id_biere`),
-  ADD KEY `bars_has_bieres_FKIndex1` (`bars_id_bar`),
-  ADD KEY `bars_has_bieres_FKIndex2` (`bieres_id_biere`);
+  ADD CONSTRAINT `bar_biere_ibfk_1` FOREIGN KEY (`bars_id_bar`) REFERENCES `bars` (`id_bar`),
+  ADD CONSTRAINT `bar_biere_ibfk_2` FOREIGN KEY (`bieres_id_biere`) REFERENCES `bieres` (`id_biere`);
 
 --
--- Index pour la table `bar_favori`
+-- Constraints for table `bar_favori`
 --
 ALTER TABLE `bar_favori`
-  ADD PRIMARY KEY (`bars_id_bar`,`utilisateurs_id_utilisateur`),
-  ADD KEY `bars_has_utilisateurs_FKIndex1` (`bars_id_bar`),
-  ADD KEY `bars_has_utilisateurs_FKIndex2` (`utilisateurs_id_utilisateur`);
+  ADD CONSTRAINT `bar_favori_ibfk_1` FOREIGN KEY (`bars_id_bar`) REFERENCES `bars` (`id_bar`),
+  ADD CONSTRAINT `bar_favori_ibfk_2` FOREIGN KEY (`utilisateurs_id_utilisateur`) REFERENCES `utilisateurs` (`id_utilisateur`);
 
 --
--- Index pour la table `bieres`
+-- Constraints for table `bieres`
 --
 ALTER TABLE `bieres`
-  ADD PRIMARY KEY (`id_biere`),
-  ADD KEY `bieres_FKIndex1` (`photos_id_photo`),
-  ADD KEY `bieres_FKIndex2` (`pays_id_pays`),
-  ADD KEY `bieres_FKIndex3` (`type_biere_id_type_biere`);
+  ADD CONSTRAINT `bieres_ibfk_1` FOREIGN KEY (`type_biere_id_type_biere`) REFERENCES `type_biere` (`id_type_biere`),
+  ADD CONSTRAINT `bieres_ibfk_2` FOREIGN KEY (`pays_id_pays`) REFERENCES `pays` (`id_pays`),
+  ADD CONSTRAINT `bieres_ibfk_3` FOREIGN KEY (`photos_id_photo`) REFERENCES `photos` (`id_photo`);
 
 --
--- Index pour la table `biere_favori`
+-- Constraints for table `biere_favori`
 --
 ALTER TABLE `biere_favori`
-  ADD PRIMARY KEY (`bieres_id_biere`,`utilisateurs_id_utilisateur`),
-  ADD KEY `bieres_has_utilisateurs_FKIndex1` (`bieres_id_biere`),
-  ADD KEY `bieres_has_utilisateurs_FKIndex2` (`utilisateurs_id_utilisateur`);
+  ADD CONSTRAINT `biere_favori_ibfk_1` FOREIGN KEY (`bieres_id_biere`) REFERENCES `bieres` (`id_biere`),
+  ADD CONSTRAINT `biere_favori_ibfk_2` FOREIGN KEY (`utilisateurs_id_utilisateur`) REFERENCES `utilisateurs` (`id_utilisateur`);
 
 --
--- Index pour la table `galerie_bar`
+-- Constraints for table `galerie_bar`
 --
 ALTER TABLE `galerie_bar`
-  ADD PRIMARY KEY (`bars_id_bar`,`photos_id_photo`),
-  ADD KEY `bars_has_photos_FKIndex1` (`bars_id_bar`),
-  ADD KEY `bars_has_photos_FKIndex2` (`photos_id_photo`);
+  ADD CONSTRAINT `galerie_bar_ibfk_1` FOREIGN KEY (`bars_id_bar`) REFERENCES `bars` (`id_bar`),
+  ADD CONSTRAINT `galerie_bar_ibfk_2` FOREIGN KEY (`photos_id_photo`) REFERENCES `photos` (`id_photo`);
 
 --
--- Index pour la table `horaires`
+-- Constraints for table `horaires`
 --
 ALTER TABLE `horaires`
-  ADD PRIMARY KEY (`id_horaire`),
-  ADD KEY `horaires_FKIndex1` (`bars_id_bar`);
+  ADD CONSTRAINT `horaires_ibfk_1` FOREIGN KEY (`bars_id_bar`) REFERENCES `bars` (`id_bar`);
 
 --
--- Index pour la table `pays`
---
-ALTER TABLE `pays`
-  ADD PRIMARY KEY (`id_pays`);
-
---
--- Index pour la table `photos`
---
-ALTER TABLE `photos`
-  ADD PRIMARY KEY (`id_photo`);
-
---
--- Index pour la table `roles`
---
-ALTER TABLE `roles`
-  ADD PRIMARY KEY (`id_role`);
-
---
--- Index pour la table `styles_bars`
---
-ALTER TABLE `styles_bars`
-  ADD PRIMARY KEY (`id_style_bar`);
-
---
--- Index pour la table `type_biere`
---
-ALTER TABLE `type_biere`
-  ADD PRIMARY KEY (`id_type_biere`);
-
---
--- Index pour la table `utilisateurs`
+-- Constraints for table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  ADD PRIMARY KEY (`id_utilisateur`),
-  ADD KEY `utilisateurs_FKIndex1` (`roles_id_role`);
+  ADD CONSTRAINT `utilisateurs_ibfk_1` FOREIGN KEY (`roles_id_role`) REFERENCES `roles` (`id_role`);
 
---
--- Index pour la table `villes`
---
-ALTER TABLE `villes`
-  ADD PRIMARY KEY (`id_ville`);
-
---
--- AUTO_INCREMENT pour les tables exportées
---
-
---
--- AUTO_INCREMENT pour la table `bars`
---
-ALTER TABLE `bars`
-  MODIFY `id_bar` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT pour la table `bieres`
---
-ALTER TABLE `bieres`
-  MODIFY `id_biere` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT pour la table `horaires`
---
-ALTER TABLE `horaires`
-  MODIFY `id_horaire` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT pour la table `pays`
---
-ALTER TABLE `pays`
-  MODIFY `id_pays` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT pour la table `photos`
---
-ALTER TABLE `photos`
-  MODIFY `id_photo` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT pour la table `roles`
---
-ALTER TABLE `roles`
-  MODIFY `id_role` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT pour la table `styles_bars`
---
-ALTER TABLE `styles_bars`
-  MODIFY `id_style_bar` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT pour la table `type_biere`
---
-ALTER TABLE `type_biere`
-  MODIFY `id_type_biere` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT pour la table `utilisateurs`
---
-ALTER TABLE `utilisateurs`
-  MODIFY `id_utilisateur` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT pour la table `villes`
---
-ALTER TABLE `villes`
-  MODIFY `id_ville` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
