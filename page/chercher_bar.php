@@ -35,7 +35,7 @@
             <select name="style" id="style">
                 <option value="" disabled selected>Choisissez votre option</option>
                 <option>Lounge</option>
-                <option>Bar de</option>
+                <option>Bar</option>
                 <option>Pub</option>
                 <option>Brasserie</option>
             </select>
