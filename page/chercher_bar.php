@@ -34,8 +34,8 @@
             <div class="input-field col l2 s6">
             <select name="style" id="style">
                 <option>Lounge</option>
-                <option value="" disabled selected>Choisissez votre option</option>
                 <option>Bar</option>
+                <option value="" disabled selected>Choisissez votre option</option>
                 <option>Pub</option>
                 <option>Brasserie</option>
             </select>
