@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
 <<<<<<< master
 <<<<<<< master
     <list default="true" id="9d685ca3-28fc-4ddf-a814-d186e594afe2" name="Default" comment="">
@@ -18,6 +19,11 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
 >>>>>>> hum
+=======
+    <list default="true" id="9d685ca3-28fc-4ddf-a814-d186e594afe2" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
+>>>>>>> chloe
     <ignored path="pinto.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -38,9 +44,12 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <file leaf-file-name="config.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config.php">
 =======
+=======
+>>>>>>> chloe
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
 >>>>>>> chloe
@@ -52,6 +61,7 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="bars_favoris.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/page/bars_favoris.php">
@@ -73,11 +83,19 @@
                 <marker date="1476863809080" expanded="true" signature="3489:3620" ph="SELECT * FRO... bars" />
 >>>>>>> essai
 =======
+=======
+      <file leaf-file-name="chercher_bar.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/page/chercher_bar.php">
+          <provider selected="true" editor-type-id="text-editor">
+>>>>>>> chloe
             <state relative-caret-position="255">
               <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding>
                 <marker date="1476864524396" expanded="true" signature="3486:3617" ph="SELECT * FRO... bars" />
+<<<<<<< HEAD
 >>>>>>> hum
+=======
+>>>>>>> chloe
               </folding>
             </state>
           </provider>
@@ -110,6 +128,9 @@
       <file leaf-file-name="chercher_biere.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/page/chercher_biere.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+>>>>>>> chloe
+=======
 >>>>>>> chloe
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -144,10 +165,16 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <option name="x" value="53" />
     <option name="y" value="24" />
     <option name="width" value="1313" />
     <option name="height" value="744" />
+=======
+    <option name="y" value="-4" />
+    <option name="width" value="1366" />
+    <option name="height" value="772" />
+>>>>>>> chloe
 =======
     <option name="y" value="-4" />
     <option name="width" value="1366" />
@@ -180,10 +207,13 @@
     </navigator>
     <panes>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <pane id="Scope">
         <subPane subId="Project Files" />
       </pane>
       <pane id="Scratches" />
+=======
+>>>>>>> chloe
 =======
 >>>>>>> chloe
       <pane id="ProjectPane">
@@ -242,6 +272,9 @@
       <pane id="Scope">
         <subPane subId="Project Files" />
       </pane>
+<<<<<<< HEAD
+>>>>>>> chloe
+=======
 >>>>>>> chloe
     </panes>
   </component>
@@ -283,6 +316,7 @@
       <envs />
       <method />
     </configuration>
+<<<<<<< HEAD
   </component>
   <component name="RunManager">
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -325,6 +359,8 @@
       <recursive>false</recursive>
       <method />
     </configuration>
+=======
+>>>>>>> chloe
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -341,6 +377,7 @@
       <updated>1476265058334</updated>
       <workItem from="1476265059853" duration="2622000" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <workItem from="1476790598734" duration="212000" />
 =======
       <workItem from="1476793996518" duration="186000" />
@@ -354,10 +391,15 @@
 =======
       <workItem from="1476794228839" duration="9141000" />
 >>>>>>> hum
+=======
+      <workItem from="1476793996518" duration="186000" />
+      <workItem from="1476794228839" duration="9141000" />
+>>>>>>> chloe
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
 <<<<<<< master
 <<<<<<< master
 <<<<<<< HEAD
@@ -394,6 +436,17 @@
 =======
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
 >>>>>>> hum
+=======
+    <option name="totallyTimeSpent" value="11949000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="-4" width="1366" height="772" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25757575" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+>>>>>>> chloe
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -437,7 +490,11 @@
     <entry file="file://$PROJECT_DIR$/page/accueil.php">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <state relative-caret-position="684">
+=======
+        <state relative-caret-position="646">
+>>>>>>> chloe
 =======
         <state relative-caret-position="646">
 >>>>>>> chloe
@@ -451,8 +508,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
 <<<<<<< HEAD
+<<<<<<< HEAD
           <folding />
 =======
+=======
+>>>>>>> chloe
           <folding>
             <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#a#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -476,6 +536,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/page/chercher_biere.php">
+<<<<<<< HEAD
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -488,10 +549,24 @@
 <<<<<<< HEAD
         <state relative-caret-position="323">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+=======
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/page/accueil.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+>>>>>>> chloe
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/page/accueil.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="413">
@@ -528,6 +603,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> chloe
     <entry file="file://$PROJECT_DIR$/page/header.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="764">
@@ -542,6 +619,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/page/chercher_bar.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< master
 <<<<<<< master
         <state relative-caret-position="255">
@@ -555,11 +633,16 @@
             <marker date="1476863809080" expanded="true" signature="3489:3620" ph="SELECT * FRO... bars" />
 >>>>>>> essai
 =======
+=======
+>>>>>>> chloe
         <state relative-caret-position="255">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
             <marker date="1476864524396" expanded="true" signature="3486:3617" ph="SELECT * FRO... bars" />
+<<<<<<< HEAD
 >>>>>>> hum
+=======
+>>>>>>> chloe
           </folding>
         </state>
       </provider>
