@@ -1,6 +1,6 @@
-<?php include("header.php"); ?>
-<?php
-    require "../config.php";
+<?php 
+ require "../config.php";
+ include("header.php");
 ?>
 
 <div class="container">

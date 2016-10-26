@@ -1,8 +1,8 @@
 <?php
 $dbhost = 'localhost';
 $dbname = 'pinto';
-$dbuser = "root";
-$dbpassword = 'root';
+$dbuser = "admin";
+$dbpassword = 'admin';
 
 try {
     $bdd = new PDO('mysql:host='.$dbhost. ';dbname='.$dbname, $dbuser, $dbpassword  );

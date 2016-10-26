@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
 
@@ -12,8 +12,8 @@
     <title>PINTO HAPPY HOUR</title>
 
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/PintoHH/materialize/materialize.css">
-    <link rel="stylesheet" type="text/css" href="/PintoHH/feuille.css">
+    <link rel="stylesheet" type="text/css" href="/www/PINTOHH/materialize/materialize.css">
+    <link rel="stylesheet" type="text/css" href="/www/PINTOHH/feuille.css">
     <link href="https://fonts.googleapis.com/css?family=Coming+Soon" rel="stylesheet">
 
 
@@ -22,15 +22,19 @@
 <body>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="/PintoHH/materialize/materialize.js"></script>
-<script type="text/javascript" src="/PintoHH/scripts.js"></script>
+<script type="text/javascript" src="/www/PINTOHH/materialize/materialize.js"></script>
+<script type="text/javascript" src="/www/PINTOHH/scripts.js"></script>
 
 <nav>
     <div class="nav-wrapper">
-        <a href="/PintoHH/index.php" class="brand-logo center">PINTO HAPPY HOUR</a>
+        <a href="index.php" class="brand-logo center">PINTO HAPPY HOUR</a>
         <ul class="right hide-on-med-and-down">
-            <li><a class="waves-effect waves-light btn" href="/PintoHH/page/inscription.php">Inscription</a></li>
-            <li><a class="waves-effect waves-light btn"  href="/PintoHH/page/connexion.php">Connexion</a></li>
+		<?php if(isset($page)&&$page !=="admin"){?>
+			<li><a class="waves-effect waves-light btn" href="/www/PINTOHH/page/inscription.php">Inscription</a></li>
+			<li><a class="waves-effect waves-light btn"  href="/www/PINTOHH/page/connexion.php">Connexion</a></li>
+			
+	<?php	} ?>
+
         </ul>
     </div>
 </nav>
@@ -40,19 +44,19 @@
 
         <a href="/PintoHH/index.php">
         <div class="col l4 s4" style="background-color: #EB9532">
-            <img src="/PintoHH/images/bonhomme.png" width="100px" class="center-block">
+            <img src="/www/PINTOHH/images/bonhomme.png" width="100px" class="center-block">
         </div>
         </a>
 
         <a href="#">
         <div class="col l4 s4" style="background-color: #F5AB35">
-            <img src="/PintoHH/images/megaphone.png" width="100px" class="center-block">
+            <img src="/www/PINTOHH/images/megaphone.png" width="100px" class="center-block">
         </div>
         </a>
 
         <a href="#">
         <div class="col l4 s4" style="background-color: #F27935">
-            <img src="/PintoHH/images/plane.png" height="100px" class="center-block">
+            <img src="/www/PINTOHH/images/plane.png" height="100px" class="center-block">
         </div>
         </a>
 
