@@ -1,7 +1,12 @@
 <?php include("../config.php"); ?>
-
 <?php include("header.php"); ?>
 
+<?php
+//INPUTS VALUES 
+$nom_bar = isset($_GET['nom_bar']) ? $_GET['nom_bar'] : '';
+$style_bar = isset($_GET['style_bar']) && $_GET['style_bar']!=='' ? $_GET['style_bar'] : null;
+$controlFavorisChecked=true;
+?>
 
 <div class="container2">
 
@@ -12,15 +17,15 @@
     <!-- BARRE DE RECHERCHE DES BARS -->
     <div class="row">
 
-        <form method="post" action="#">
+        <form method="get">
 
           <div class="input-field col l2 s6 offset-l1">
             <label for="nom_bar">Nom</label>
-            <input type="text" name="nom_bar" id="nom_bar" class="autocomplete"/>
+              <input type="text" name="nom_bar" id="nom_bar" class="autocomplete" value="<?= $nom_bar ?>"/>
           </div>
 
 
-            <div class="input-field col l2 s6">
+           <!-- <div class="input-field col l2 s6">
                 <select name="distance" id="distance">
                     <option value="" disabled selected>Choisissez votre option</option>
                     <option>500M</option>
@@ -29,15 +34,21 @@
                     <option>Pas de Palier</option>
                 </select>
                 <label for="distance">Palier de Distance</label>
-            </div>
+            </div> -->
 
             <div class="input-field col l2 s6">
-            <select name="style" id="style">
-                <option>Lounge</option>
-                <option>Bar</option>
-                <option>Pub</option>
-                <option>Brasserie</option>
-            </select>
+                <select name="style_bar" id="style_bar">
+                    <option value="">Choisissez votre option</option>
+                    <?php
+                    $reponse = $bdd->query('select * from styles_bars');
+                    while ($style = $reponse->fetch()) {?>
+                        <option value="<?= $style['id_style_bar'] ?>"
+						<?= $style_bar==$style['id_style_bar'] ? 'selected' : '' ?>>
+						<?= $style['nom_style_bar'] ?>
+			</option>
+                    <?php }
+                    ?>
+                </select>
                 <label for="style">Style de Bar</label>
             </div>
 
@@ -52,6 +63,7 @@
                 <label for="ouverture">Ouverture de l'Happy Hour</label>
             </div>
 
+
             <!--- <div class="input-field col l2 s6">
              <label>Ouverture de l'Happy Hour</label>
              <input type="radio" name="Ouverture" id="moment"> <label for="moment">En ce moment</label>
@@ -62,14 +74,14 @@
              </div>
          --->
             <div class="input-field col l1 s6">
-                <a class="waves-effect waves-light btn" type="submit" name="action">Rechercher</a>
+                <button class="waves-effect waves-light btn" type="submit" name="action">Rechercher</button>
             </div>
 
         </form> <!-- fin du formulaire -->
 
     </div> <!-- fin row -->
 
-            <div class="row">
+            <div class="row"> <!-- LISTE OU MAP -->
                 <div class="col l3 offset-l9">
                     <div class="switch">
                         <label>
@@ -82,82 +94,66 @@
                 </div>
             </div>
 
+		<!-- AFFICHAGE DES BARS SELECTIONNES -->
+			<?php	include('template_bars.php'); ?>
+			
+			<!-- SCRIPTS JQUERY -->
+			
+		<script type="text/javascript">
+		$(function(){
+			var $boutonFavoris = $(":checkbox");
+			$boutonFavoris.change(function(){
+				var $bar = $(this);
+				var $bar_id = $bar.attr('id').replace('favoris','');
+				var $id_user = 1;
+				var $datas = 'id_bar='+$bar_id+'&id_user='+$id_user;
+		
+				var $ischecked = $(this).attr('checked');
+				var $controllActionFavoris;
+				console.log($controllActionFavoris);
+				if($ischecked==undefined){
+					$controllActionFavoris="ajouter";
+				}
+				if($ischecked=='checked'){
+					$controllActionFavoris="supprimer";
+				}
+				console.log($controllActionFavoris);
+				var $url;
+				var $datas;
+				//URL
+				if($controllActionFavoris=="ajouter"){
+					var $url ="../scripts/add_bar_favoris.php";
+				}
+				if($controllActionFavoris=="supprimer"){
+					var $url ="../scripts/remove_bar_favoris.php";
+				}
+				console.log($bar_id);
+				console.log($id_user);
+	
+				
+		//AJAX 
+		$.ajax({
+			url:$url,
+			type:'GET',
+			data:$datas,
+			dataType: 'html',
+			success:function(resultat){
+				// ON AVERTI USER QUE SON BAR EST SUPPRIMER DES FAVORIS
+				$('.container').prepend(resultat);
+				// RECHARGEMENT DE LA PAGE 
+				setInterval(function(){location.reload(); }, 3000);
+				
 
-            <!-- AFFICHAGE DES BARS SELECTIONNES -->
-            <div class="row">
-            <div class="col l10 offset-l1">
-            <ul class="collapsible popout" data-collapsible="accordion">
+			
+		} 
+		} 
+		); //ajax		
+		});
+			
+		});
+		
+		
+		</script>
 
-                <?php
-                $reponse = $bdd->query
-                ('SELECT * FROM bars
-                INNER JOIN styles_bars
-                ON styles_bars.id_style_bar=bars.styles_bars_id_style_bar
-                ');
-                while ($donnees = $reponse->fetch()) {
-                    ?>
-
-                    <li>
-                        <div class="collapsible-header bar-font"><?php echo $donnees['nom_bar']; ?></div>
-                        <div class="collapsible-body white-font">
-
-
-                            <div class="row">
-                                <div class="col l5">
-                                    <p><?php echo $donnees['numero'] . " " . $donnees['rue'] . ", EPINAL" ?></p>
-                                </div>
-
-                                <div class="col l3 offset-l4">
-                                    <p>
-                                        <i class="material-icons prefix">phone</i><?php echo "  " . $donnees['telephone']; ?>
-                                    </p>
-                                </div>
-                            </div><!-- fin row -->
-
-                            <div class="row">
-                                <div>
-                                    <p>Type de bar : <?php echo $donnees['nom_style_bar']; ?></p>
-                                </div>
-                            </div><!-- fin row -->
-
-
-                            <!-- BOUTON POUR LE MODAL -->
-                            <div class="center">
-                                <a class="waves-effect waves-light btn modal-trigger"
-                                   href="#<?php echo $donnees['id_bar']; ?>">Voir la fiche complète du bar</a>
-                            </div>
-
-                            <br>
-
-                            <!-- MODAL - FICHE COMPLETE DU BAR -->
-                            <div id="<?php echo $donnees['id_bar']; ?>" class="modal">
-                                <div class="modal-content grey-font">
-                                    <h4 class="bar-font"><?php echo $donnees['nom_bar']; ?></h4>
-                                        <p><?php echo utf8_encode($donnees['description']); ?></p>
-                                </div>
-                                <div class="modal-footer">
-                                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat"><i
-                                            class="large material-icons prefix">close</i></a>
-                                </div>
-
-                            </div>  <!-- FIN DU MODAL -->
-
-
-                        </div> <!-- FIN DU COLLAPSE -->
-
-
-                    </li>
-
-
-                    <?php
-                }
-
-                ?>
-
-            </ul>
-        </div>
-    </div> <!-- fin row -->
-
-</div> <!-- fin container -->
-
+    
 <?php include("footer.php"); ?>

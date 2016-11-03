@@ -29,11 +29,11 @@
     <div class="nav-wrapper">
         <a href="index.php" class="brand-logo center">PINTO HAPPY HOUR</a>
         <ul class="right hide-on-med-and-down">
-		<?php if(isset($page)&&$page !=="admin"){?>
-			<li><a class="waves-effect waves-light btn" href="/www/PINTOHH/page/inscription.php">Inscription</a></li>
+
+		<li><a class="waves-effect waves-light btn" href="/www/PINTOHH/page/inscription.php">Inscription</a></li>
 			<li><a class="waves-effect waves-light btn"  href="/www/PINTOHH/page/connexion.php">Connexion</a></li>
-			
-	<?php	} ?>
+			<li><a class="waves-effect waves-light btn"  href="/www/PINTOHH/page/deconnection.php">Deconnection</a></li>
+
 
         </ul>
     </div>
